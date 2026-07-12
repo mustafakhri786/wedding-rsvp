@@ -421,9 +421,15 @@
         <div
             id="acceptSection" class="hidden">
 
-<div class="guest-selection">
+<div
+    id="guestSelection"
+    class="guest-selection">
 
-    <div class="guest-field">
+    <!-- Gentlemen -->
+
+    <div
+        id="gentsField"
+        class="guest-field">
 
         <label for="gentsCount">
 
@@ -435,7 +441,11 @@
 
     </div>
 
-    <div class="guest-field">
+    <!-- Ladies -->
+
+    <div
+        id="ladiesField"
+        class="guest-field">
 
         <label for="ladiesCount">
 
@@ -447,10 +457,29 @@
 
     </div>
 
-</div>
-            <div class="max-guests">
+    <!-- Open Invitation -->
 
-    <p>
+    <div
+        id="membersField"
+        class="guest-field hidden">
+
+        <label for="membersCount">
+
+            Members Attending
+
+        </label>
+
+        <select id="membersCount"></select>
+
+    </div>
+
+</div>
+
+<div
+    id="guestLimits"
+    class="max-guests">
+
+    <p id="totalGuestsInfo">
 
         <strong>Maximum Guests Invited:</strong>
 
@@ -458,7 +487,7 @@
 
     </p>
 
-    <p>
+    <p id="gentlemenInfo">
 
         <strong>Maximum Gentlemen:</strong>
 
@@ -466,7 +495,7 @@
 
     </p>
 
-    <p>
+    <p id="ladiesInfo">
 
         <strong>Maximum Ladies:</strong>
 
