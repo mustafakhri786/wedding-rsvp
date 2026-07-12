@@ -1,0 +1,1478 @@
+/* ==========================================
+            GOOGLE FONTS
+========================================== */
+
+html{
+    scroll-behavior:smooth;
+}
+
+/* ==========================================
+            CSS RESET
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+button,
+input,
+select,
+textarea{
+    font:inherit;
+}
+
+/* ==========================================
+            ROOT VARIABLES
+========================================== */
+
+:root{
+
+    /* Colors */
+
+    --bg:#FFF8F2;
+    --card:#FFFFFF;
+    --gold:#B68B3A;
+    --gold-dark:#9A722B;
+
+    --text:#333333;
+    --muted:#666666;
+
+    --border:#ECE2D5;
+
+    /* Fonts */
+
+    --heading:'Playfair Display', serif;
+    --body:'Poppins', sans-serif;
+    --accent:'Great Vibes', cursive;
+
+    /* Sizes */
+
+    --container:1200px;
+    --section-space:100px;
+    --radius:20px;
+
+    /* Shadows */
+
+    --shadow:
+        0 10px 35px rgba(0,0,0,.08);
+
+    --transition:.3s ease;
+
+}
+
+/* ==========================================
+            BODY
+========================================== */
+
+body{
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    font-family:var(--body);
+
+    line-height:1.7;
+
+    overflow-x:hidden;
+
+}
+
+/* ==========================================
+            TYPOGRAPHY
+========================================== */
+
+h1,
+h2,
+h3{
+
+    font-family:var(--heading);
+
+    font-weight:600;
+
+    color:var(--text);
+
+}
+
+p{
+
+    color:var(--muted);
+
+}
+
+/* ==========================================
+            SECTIONS
+========================================== */
+
+.section{
+
+    padding:var(--section-space) 8%;
+
+}
+
+.section-heading{
+
+    text-align:center;
+
+    font-size:2.2rem;
+
+    margin-bottom:60px;
+
+}
+
+/* ==========================================
+            CARDS
+========================================== */
+
+.card{
+
+    max-width:900px;
+
+    margin:auto;
+
+    background:var(--card);
+
+    border-radius:var(--radius);
+
+    padding:50px;
+
+    box-shadow:var(--shadow);
+
+}
+
+/* ==========================================
+            REUSABLE
+========================================== */
+
+.hidden{
+
+   display:none !important;
+
+}
+
+/* ==========================================
+                NAVIGATION
+========================================== */
+
+.navbar{
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    background: rgba(255, 248, 242, 0.95);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid var(--border);
+
+    z-index: 1000;
+
+    transition: var(--transition);
+
+}
+
+/* ---------- Navigation Container ---------- */
+
+.nav-container{
+
+    max-width: var(--container);
+
+    margin: 0 auto;
+
+    padding: 18px 30px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+/* ---------- Logo ---------- */
+
+.logo{
+
+    font-family: var(--heading);
+
+    font-size: 1.45rem;
+
+    font-weight: 700;
+
+    color: var(--gold);
+
+    letter-spacing: 1px;
+
+    user-select: none;
+
+    cursor: default;
+
+}
+
+/* ---------- Navigation Menu ---------- */
+
+.navbar ul{
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 35px;
+
+    list-style: none;
+
+}
+
+/* ---------- Navigation Links ---------- */
+
+.navbar a{
+
+    position: relative;
+
+    text-decoration: none;
+
+    color: var(--text);
+
+    font-size: .95rem;
+
+    font-weight: 500;
+
+    transition: var(--transition);
+
+}
+
+/* ---------- Underline Animation ---------- */
+
+.navbar a::after{
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -6px;
+
+    width: 0;
+
+    height: 2px;
+
+    background: var(--gold);
+
+    transition: width .3s ease;
+
+}
+
+.navbar a:hover{
+
+    color: var(--gold);
+
+}
+
+.navbar a:hover::after{
+
+    width: 100%;
+
+}
+
+.hero{
+
+    padding-top: 90px;
+
+}
+
+/* ==========================================
+                HERO
+========================================== */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:120px 30px 80px;
+
+    background:linear-gradient(
+        to bottom,
+        #FFF8F2,
+        #FFFDFB
+    );
+
+}
+
+/* ---------- Hero Overlay ---------- */
+
+.overlay{
+
+    width:100%;
+
+    max-width:850px;
+
+    margin:auto;
+
+}
+
+/* ---------- Bismillah ---------- */
+
+.bismillah{
+
+    font-size:1.5rem;
+
+    color:var(--gold);
+
+    margin-bottom:30px;
+
+    line-height:1.8;
+
+}
+
+/* ---------- Subtitle ---------- */
+
+.subtitle{
+
+    font-size:1rem;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:var(--muted);
+
+    margin-bottom:15px;
+
+}
+
+/* ---------- Invitation Text ---------- */
+
+.invite-text{
+
+    font-size:1.1rem;
+
+    max-width:620px;
+
+    margin:0 auto 45px;
+
+    color:var(--text);
+
+}
+
+/* ---------- Couple Names ---------- */
+
+.couple{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:45px;
+
+}
+
+/* Bride */
+
+#brideName{
+
+    font-family:var(--accent);
+
+    font-size:4.8rem;
+
+    color:var(--gold);
+
+    font-weight:400;
+
+}
+
+/* Ampersand */
+
+.and{
+
+    font-family:var(--heading);
+
+    font-size:2rem;
+
+    color:var(--text);
+
+}
+
+/* Groom */
+
+#groomName{
+
+    font-family:var(--accent);
+
+    font-size:4.8rem;
+
+    color:var(--gold);
+
+    font-weight:400;
+
+}
+
+/* ---------- Hero Details ---------- */
+
+.hero-details{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:50px;
+
+}
+
+.detail-box{
+
+    background:rgba(255,255,255,.85);
+
+    padding:14px 28px;
+
+    border-radius:999px;
+
+    border:1px solid var(--border);
+
+    font-weight:500;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.05);
+
+}
+
+/* ---------- Hero Buttons ---------- */
+
+.hero-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:60px;
+
+}
+
+/* ---------- Scroll Indicator ---------- */
+
+.scroll-down{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:var(--gold);
+
+    font-size:.9rem;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    opacity:.75;
+
+    animation:fadeScroll 2.5s ease-in-out infinite;
+
+}
+
+/* ---------- Scroll Animation ---------- */
+
+@keyframes fadeScroll{
+
+    0%{
+        opacity:.35;
+    }
+
+    50%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:.35;
+    }
+
+}
+
+.scroll-arrow{
+
+    font-size:1.5rem;
+
+    line-height:1;
+
+}
+
+/* ==========================================
+                BUTTONS
+========================================== */
+
+/* ---------- Base Button ---------- */
+
+.btn{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:15px 34px;
+
+    border:none;
+
+    border-radius:999px;
+
+    font-family:var(--body);
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+    cursor:pointer;
+
+    transition:all .35s ease;
+
+}
+
+/* ---------- Primary Button ---------- */
+
+.btn-primary{
+
+    background:var(--gold);
+
+    color:#fff;
+
+    border:2px solid var(--gold);
+
+    box-shadow:0 8px 20px rgba(182,139,58,.20);
+
+}
+
+/* ---------- Secondary Button ---------- */
+
+.btn-secondary{
+
+    background:transparent;
+
+    color:var(--gold);
+
+    border:2px solid var(--gold);
+
+}
+
+/* ---------- Primary Hover ---------- */
+
+.btn-primary:hover{
+
+    background:var(--gold-dark);
+
+    border-color:var(--gold-dark);
+
+    transform:translateY(-3px);
+
+    box-shadow:0 14px 28px rgba(182,139,58,.30);
+
+}
+
+/* ---------- Secondary Hover ---------- */
+
+.btn-secondary:hover{
+
+    background:var(--gold);
+
+    color:#fff;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 14px 28px rgba(182,139,58,.25);
+
+}
+
+/* ---------- Active ---------- */
+
+.btn:active{
+
+    transform:scale(.98);
+
+}
+
+/* ---------- Focus ---------- */
+
+.btn:focus-visible{
+
+    outline:3px solid rgba(182,139,58,.30);
+
+    outline-offset:4px;
+
+}
+
+/* ---------- Disabled ---------- */
+
+.btn:disabled{
+
+    opacity:.55;
+
+    cursor:not-allowed;
+
+    transform:none;
+
+    box-shadow:none;
+
+}
+
+/* ---------- Hero Buttons ---------- */
+
+.hero-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:60px;
+
+}
+
+/* ==========================================
+            INVITATION
+========================================== */
+
+.invitation-card{
+
+    max-width:850px;
+
+    text-align:center;
+
+    transition:var(--transition);
+
+}
+
+.invitation-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 18px 40px rgba(0,0,0,.10);
+
+}
+
+/* ---------- Section Title ---------- */
+
+.section-title{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:16px;
+
+    color:var(--gold);
+
+    text-transform:uppercase;
+
+    letter-spacing:3px;
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+
+}
+
+.section-title::before,
+.section-title::after{
+
+    content:"";
+
+    width:60px;
+
+    height:1px;
+
+    background:var(--gold);
+
+}
+
+/* ---------- Dear ---------- */
+
+.invitation-card h2{
+
+    font-size:2rem;
+
+    margin-bottom:18px;
+
+}
+
+/* ---------- Guest Name ---------- */
+
+#guestName{
+
+    font-family:var(--heading);
+
+    font-size:2.3rem;
+
+    font-weight:700;
+
+    color:var(--gold);
+
+    margin-bottom:25px;
+
+}
+
+/* ---------- Couple Names ---------- */
+
+.couple-invitation{
+
+    font-family:var(--accent);
+
+    font-size:3.8rem;
+
+    font-weight:400;
+
+    color:var(--gold);
+
+    line-height:1.25;
+
+    margin:35px 0;
+
+}
+
+/* ---------- Invitation Text ---------- */
+
+.invitation-text{
+
+    max-width:620px;
+
+    margin:0 auto;
+
+    font-size:1.05rem;
+
+    line-height:1.9;
+
+}
+
+/* ---------- Divider ---------- */
+
+.divider{
+
+    width:90px;
+
+    height:2px;
+
+    background:var(--gold);
+
+    border-radius:999px;
+
+    margin:35px auto;
+
+}
+/* ==========================================
+            WEDDING DETAILS
+========================================== */
+
+.details-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+    max-width:1000px;
+
+    margin:0 auto;
+
+}
+
+.detail-card{
+
+    background:var(--card);
+
+    border-radius:var(--radius);
+
+    padding:40px 30px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+
+    border:1px solid var(--border);
+
+    transition:var(--transition);
+
+}
+
+.detail-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.10);
+
+}
+
+.detail-icon{
+
+    font-size:2.3rem;
+
+    margin-bottom:20px;
+
+}
+
+.detail-card h3{
+
+    font-family:var(--heading);
+
+    font-size:1.5rem;
+
+    color:var(--text);
+
+    margin-bottom:15px;
+
+}
+
+.detail-card p{
+
+    font-size:1.05rem;
+
+    color:var(--muted);
+
+    line-height:1.8;
+
+}
+
+.section-heading{
+
+    position:relative;
+
+}
+
+.section-heading::after{
+
+    content:"";
+
+    display:block;
+
+    width:80px;
+
+    height:3px;
+
+    background:var(--gold);
+
+    margin:18px auto 0;
+
+    border-radius:999px;
+
+}
+/* ==========================================
+                VENUE
+========================================== */
+
+.venue-card{
+
+    max-width:700px;
+
+    text-align:center;
+
+    transition:var(--transition);
+
+}
+
+.venue-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 18px 40px rgba(0,0,0,.10);
+
+}
+
+/* ---------- Venue Name ---------- */
+
+.venue-card h2{
+
+    font-family:var(--heading);
+
+    font-size:2.2rem;
+
+    color:var(--text);
+
+    margin-bottom:12px;
+
+}
+
+/* ---------- City ---------- */
+
+.venue-card p:first-of-type{
+
+    font-size:1.1rem;
+
+    color:var(--gold);
+
+    font-weight:500;
+
+    margin-bottom:30px;
+
+}
+
+/* ---------- Description ---------- */
+
+.venue-description{
+
+    max-width:500px;
+
+    margin:0 auto 35px;
+
+    font-size:1.05rem;
+
+    line-height:1.8;
+
+    color:var(--muted);
+
+}
+
+/* ---------- Google Maps Button ---------- */
+
+#mapButton{
+
+    min-width:240px;
+
+}
+
+/* ==========================================
+                    RSVP
+========================================== */
+
+.rsvp-card{
+
+    max-width:700px;
+
+    text-align:center;
+
+    transition:var(--transition);
+
+}
+
+.rsvp-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 18px 40px rgba(0,0,0,.10);
+
+}
+
+/* ---------- Subtitle ---------- */
+
+.rsvp-subtitle{
+
+    margin:15px 0 35px;
+
+    font-size:1rem;
+
+    color:var(--muted);
+
+}
+
+/* ---------- Attendance Options ---------- */
+
+.attendance-options{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:30px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:35px;
+
+}
+
+.radio-option{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    cursor:pointer;
+
+    font-weight:500;
+
+    color:var(--text);
+
+}
+
+.radio-option input{
+
+    accent-color:var(--gold);
+
+    width:18px;
+
+    height:18px;
+
+}
+
+/* ---------- Guest Selection ---------- */
+
+.guest-selection{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:30px;
+
+    margin:35px 0;
+
+}
+
+.guest-field{
+
+    display:flex;
+
+    flex-direction:column;
+
+    text-align:left;
+
+}
+
+.guest-field label{
+
+    margin-bottom:10px;
+
+    font-weight:600;
+
+    color:var(--text);
+
+}
+
+/* ---------- Dropdown ---------- */
+
+select{
+
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    background:#fff;
+
+    font-size:1rem;
+
+    transition:var(--transition);
+
+}
+
+select:focus{
+
+    outline:none;
+
+    border-color:var(--gold);
+
+    box-shadow:0 0 0 3px rgba(182,139,58,.15);
+
+}
+
+/* ---------- Max Guests ---------- */
+
+.max-guests{
+
+    margin-bottom:20px;
+
+    font-weight:500;
+
+}
+
+.max-guests strong{
+
+    color:var(--gold);
+
+}
+
+/* ---------- Warning ---------- */
+
+.warning{
+
+    color:#C62828;
+
+    background:#FDECEC;
+
+    border:1px solid #F5C2C2;
+
+    border-radius:12px;
+
+    padding:14px;
+
+    margin-bottom:25px;
+
+}
+
+/* ---------- Message Box ---------- */
+
+textarea{
+
+    width:100%;
+
+    min-height:140px;
+
+    resize:vertical;
+
+    padding:16px;
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    background:#fff;
+
+    font-family:var(--body);
+
+    font-size:1rem;
+
+    margin-bottom:35px;
+
+    transition:var(--transition);
+
+}
+
+textarea:focus{
+
+    outline:none;
+
+    border-color:var(--gold);
+
+    box-shadow:0 0 0 3px rgba(182,139,58,.15);
+
+}
+
+/* ---------- Submit Button ---------- */
+
+#submitBtn{
+
+    min-width:220px;
+
+}
+
+/* ==========================================
+                THANK YOU
+========================================== */
+
+.thank-you-card{
+
+    max-width:700px;
+
+    text-align:center;
+
+    transition:var(--transition);
+
+}
+
+.thank-you-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 18px 40px rgba(0,0,0,.10);
+
+}
+
+/* ---------- Heart Icon ---------- */
+
+.thank-you-icon{
+
+    font-size:3.5rem;
+
+    color:var(--gold);
+
+    margin-bottom:25px;
+
+}
+
+/* ---------- Heading ---------- */
+
+.thank-you-card h2{
+
+    font-size:2.5rem;
+
+    margin-bottom:20px;
+
+}
+
+/* ---------- Text ---------- */
+
+.thank-you-card p{
+
+    max-width:500px;
+
+    margin:0 auto 18px;
+
+    font-size:1.05rem;
+
+    line-height:1.9;
+
+}
+
+/* ==========================================
+                FOOTER
+========================================== */
+
+footer{
+
+    margin-top:80px;
+
+    padding:45px 20px;
+
+    background:#F8EFE6;
+
+    border-top:1px solid var(--border);
+
+}
+
+.footer-content{
+
+    max-width:700px;
+
+    margin:auto;
+
+    text-align:center;
+
+}
+
+.footer-content h3{
+
+    font-family:var(--accent);
+
+    font-size:2.8rem;
+
+    color:var(--gold);
+
+    font-weight:400;
+
+    margin-bottom:15px;
+
+}
+
+.footer-content p{
+
+    margin-bottom:10px;
+
+    color:var(--muted);
+
+}
+
+/* ==========================================
+            RESPONSIVE DESIGN
+========================================== */
+
+/* ---------- Tablets ---------- */
+
+@media (max-width:992px){
+
+    .nav-container{
+
+        padding:16px 24px;
+
+    }
+
+    .navbar ul{
+
+        gap:20px;
+
+    }
+
+    #brideName,
+    #groomName{
+
+        font-size:4rem;
+
+    }
+
+    .details-grid{
+
+        grid-template-columns:1fr;
+
+        max-width:500px;
+
+    }
+
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width:768px){
+
+    .section{
+
+        padding:70px 20px;
+
+    }
+
+    .card{
+
+        padding:35px 25px;
+
+    }
+
+    .nav-container{
+
+        flex-direction:column;
+
+        gap:15px;
+
+        padding:18px 20px;
+
+    }
+
+    .navbar ul{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+        gap:18px;
+
+    }
+
+    #brideName,
+    #groomName{
+
+        font-size:3.2rem;
+
+    }
+
+    .couple-invitation{
+
+        font-size:3rem;
+
+    }
+
+    .hero-details{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+    }
+
+    .btn{
+
+        width:100%;
+
+        max-width:320px;
+
+    }
+
+    .attendance-options{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:18px;
+
+    }
+
+    .guest-selection{
+
+        grid-template-columns:1fr;
+
+    }
+
+    textarea{
+
+        min-height:120px;
+
+    }
+
+}
+
+/* ---------- Small Phones ---------- */
+
+@media (max-width:480px){
+
+    .logo{
+
+        font-size:1.2rem;
+
+    }
+
+    .section-heading{
+
+        font-size:1.8rem;
+
+    }
+
+    #brideName,
+    #groomName{
+
+        font-size:2.6rem;
+
+    }
+
+    .bismillah{
+
+        font-size:1.2rem;
+
+    }
+
+    .couple-invitation{
+
+        font-size:2.4rem;
+
+    }
+
+    .detail-card{
+
+        padding:30px 20px;
+
+    }
+
+}

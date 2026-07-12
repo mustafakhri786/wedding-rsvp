@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+    content="Wedding invitation of Zahra Husain Fakhri & M Husain Kawja">
+
+    <title>
+        Zahra & Husain Wedding
+    </title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+          rel="stylesheet">
+    <link rel="icon" href="images/favicon.png">
+
+</head>
+
+<body>
+
+<!-- =======================================
+                NAVIGATION
+======================================= -->
+
+<nav class="navbar" aria-label="Main Navigation">
+
+    <div class="nav-container">
+
+        <div class="logo">
+
+            ZH ❤️ HK
+
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="#hero">Home</a>
+            </li>
+
+            <li>
+                <a href="#invitation">Invitation</a>
+            </li>
+
+            <li>
+                <a href="#details">Details</a>
+            </li>
+
+            <li>
+                <a href="#venue">Venue</a>
+            </li>
+
+            <li>
+                <a href="#rsvp">RSVP</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+<!-- =======================================
+                HERO
+======================================= -->
+
+<section
+    id="hero"
+    class="hero">
+
+    <div class="overlay">
+
+        <p class="bismillah" lang="ar">
+
+            بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+
+        </p>
+
+        <p class="subtitle">
+
+            Together with our families
+
+        </p>
+
+        <p class="invite-text">
+
+            request the honour of your presence
+            at the wedding ceremony of
+
+        </p>
+
+        <h1 class="couple">
+
+            <span id="brideName"></span>
+
+            <span class="and">
+
+                &
+
+            </span>
+
+            <span id="groomName"></span>
+
+        </h1>
+
+        <div class="hero-details">
+
+            <div class="detail-box">
+
+                📅
+
+                <span id="weddingDate"></span>
+
+            </div>
+
+            <div class="detail-box">
+
+                🕐
+
+                <span id="weddingTime"></span>
+
+            </div>
+
+        </div>
+
+        <div class="hero-buttons">
+
+            <button type="button" id="viewInvitation" class="btn btn-primary">
+
+                View Invitation
+
+            </button>
+
+           <button
+            type="button"
+            id="goRSVP"
+            class="btn btn-secondary">
+                Respond (RSVP)
+
+            </button>
+
+        </div>
+
+       <div class="scroll-down">
+
+    <span class="scroll-arrow">
+
+        ↓
+
+    </span>
+
+    <span>
+
+        Scroll
+
+    </span>
+
+</div>
+
+    </div>
+
+</section>
+
+<!-- =======================================
+                INVITATION
+======================================= -->
+
+<section
+    id="invitation"
+    class="section">
+
+    <div class="card invitation-card">
+
+        <p class="section-title">
+
+            Wedding Invitation
+
+        </p>
+
+        <h2>
+
+            Dear
+
+        </h2>
+
+        <h3 id="guestName">
+
+            Loading...
+
+        </h3>
+
+        <div class="divider"></div>
+
+        <p class="invitation-text">
+
+            With the blessings of Allah,
+
+            <br><br>
+
+            We request the honour of your gracious
+            presence at the wedding ceremony of
+
+        </p>
+
+        <h2
+            class="couple-invitation"
+            id="coupleNames">
+
+        </h2>
+
+        <p class="invitation-text">
+
+            Your presence and blessings
+            will make our celebration
+            even more memorable.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- =======================================
+            WEDDING DETAILS
+======================================= -->
+
+<section
+    id="details"
+    class="section">
+
+    <h2 class="section-heading">
+
+        Wedding Details
+
+    </h2>
+
+    <div class="details-grid">
+
+        <!-- Date -->
+
+        <div class="detail-card">
+
+            <div class="detail-icon">
+
+                📅
+
+            </div>
+
+            <h3>
+
+                Date
+
+            </h3>
+
+            <p id="detailDate">
+
+            </p>
+
+        </div>
+
+        <!-- Time -->
+
+        <div class="detail-card">
+
+            <div class="detail-icon">
+
+                🕐
+
+            </div>
+
+            <h3>
+
+                Time
+
+            </h3>
+
+            <p id="detailTime">
+
+            </p>
+
+        </div>
+
+        <!-- Venue -->
+
+        <div class="detail-card">
+
+            <div class="detail-icon">
+
+                📍
+
+            </div>
+
+            <h3>
+
+                Venue
+
+            </h3>
+
+            <p id="detailVenue">
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =======================================
+                VENUE
+======================================= -->
+
+<section
+    id="venue"
+    class="section">
+
+    <div class="card venue-card">
+
+        <p class="section-title">
+
+            Wedding Venue
+
+        </p>
+
+        <h2 id="venueName">
+
+            Shehabi Hall
+
+        </h2>
+
+        <p id="venueCity">
+
+            Surat, Gujarat
+
+        </p>
+
+        <div class="divider"></div>
+
+        <p class="venue-description">
+
+            We would be delighted to welcome you
+            to celebrate this joyous occasion
+            with us.
+
+        </p>
+
+        <button
+            type="button"
+            id="mapButton"
+            class="btn btn-primary">
+
+            📍 View in Google Maps
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- =======================================
+                    RSVP
+======================================= -->
+
+<section
+    id="rsvp"
+    class="section">
+
+    <div class="card rsvp-card">
+
+        <p class="section-title">
+
+            RSVP
+
+        </p>
+
+        <h2>
+
+            Will you be joining us?
+
+        </h2>
+
+        <p class="rsvp-subtitle">
+
+            Kindly let us know your response.
+
+        </p>
+
+        <div class="attendance-options">
+
+            <label class="radio-option">
+
+                <input
+                    type="radio"
+                    name="attendance"
+                    value="yes">
+
+                Joyfully Accept
+
+            </label>
+
+            <label class="radio-option">
+
+                <input
+                    type="radio"
+                    name="attendance"
+                    value="no">
+
+                Regretfully Decline
+
+            </label>
+
+        </div>
+
+        <!-- Hidden until "Accept" -->
+
+        <div
+            id="acceptSection" class="hidden">
+
+<div class="guest-selection">
+
+    <div class="guest-field">
+
+        <label for="gentsCount">
+
+            Gentlemen
+
+        </label>
+
+        <select id="gentsCount"></select>
+
+    </div>
+
+    <div class="guest-field">
+
+        <label for="ladiesCount">
+
+            Ladies
+
+        </label>
+
+        <select id="ladiesCount"></select>
+
+    </div>
+
+</div>
+            <p class="max-guests">
+
+                Maximum Guests Invited:
+
+                <strong id="maxGuests"></strong>
+
+            </p>
+
+            <p
+                id="warning"
+               class="warning hidden">
+
+                Total guests exceed your invitation.
+
+            </p>
+
+        </div>
+
+        <button
+            type="button"
+            id="submitBtn"
+            class="btn btn-primary">
+
+            Submit RSVP
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- =======================================
+                THANK YOU
+======================================= -->
+
+<section
+    id="thankYou"
+    class="section hidden">
+
+    <div class="card thank-you-card">
+
+        <div class="thank-you-icon">
+
+            ❤️
+
+        </div>
+
+        <h2>
+
+            Thank You!
+
+        </h2>
+
+        <p>
+
+            Your RSVP has been received successfully.
+
+        </p>
+
+        <p>
+
+            We look forward to celebrating this
+            joyous occasion with you.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- =======================================
+                FOOTER
+======================================= -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <h3>
+
+            Zahra & Husain
+
+        </h3>
+
+        <p>
+
+            30th August 2026
+
+        </p>
+
+        <p>
+
+            Thank you for your love,
+            prayers and blessings.
+
+        </p>
+
+    </div>
+
+</footer>
+
+<script type="module" src="js/app.js"></script>
+
+</body>
+
+</html>
