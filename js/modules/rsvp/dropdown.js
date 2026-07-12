@@ -9,23 +9,30 @@ import {
 
     createOption,
 
-    clearElement
+    clearElement,
+
+    toNumber
 
 } from "../helpers.js";
 
+
 /*
 |--------------------------------------------------------------------------
-| Dropdown Helpers
+| Populate Dropdown
 |--------------------------------------------------------------------------
 */
 
 /**
- * Populate a dropdown with values from 0 to maxGuests.
+ * Populate a dropdown while preserving
+ * the current value whenever possible.
  *
  * @param {HTMLSelectElement} dropdown
- * @param {number} maxGuests
+ * @param {number} maximum
  */
-function populateDropdown(dropdown, maxGuests) {
+export function populateDropdown(
+    dropdown,
+    maximum
+) {
 
     if (!dropdown) {
 
@@ -33,9 +40,25 @@ function populateDropdown(dropdown, maxGuests) {
 
     }
 
+    const previousValue = Math.min(
+
+        toNumber(dropdown.value),
+
+        maximum
+
+    );
+
     clearElement(dropdown);
 
-    for (let i = 0; i <= maxGuests; i++) {
+    for (
+
+        let i = 0;
+
+        i <= maximum;
+
+        i++
+
+    ) {
 
         dropdown.appendChild(
 
@@ -45,38 +68,157 @@ function populateDropdown(dropdown, maxGuests) {
 
     }
 
+    dropdown.value = previousValue;
+
 }
+
 
 /*
 |--------------------------------------------------------------------------
-| Dropdown Initialization
+| Get Dropdown Values
 |--------------------------------------------------------------------------
 */
 
 /**
- * Initialize RSVP guest count dropdowns.
+ * Get selected gentlemen count.
  *
- * @param {Object} guest
+ * @returns {number}
  */
-export function initializeDropdowns(guest) {
+export function getGentlemenCount() {
 
-    const gentsDropdown = getElement("gentsCount");
+    return toNumber(
 
-    const ladiesDropdown = getElement("ladiesCount");
+        getElement("gentsCount")?.value
+
+    );
+
+}
+
+
+/**
+ * Get selected ladies count.
+ *
+ * @returns {number}
+ */
+export function getLadiesCount() {
+
+    return toNumber(
+
+        getElement("ladiesCount")?.value
+
+    );
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Set Dropdown Values
+|--------------------------------------------------------------------------
+*/
+
+/**
+ * Set gentlemen count.
+ *
+ * @param {number} value
+ */
+export function setGentlemenCount(value) {
+
+    const dropdown =
+
+        getElement("gentsCount");
+
+    if (!dropdown) {
+
+        return;
+
+    }
+
+    dropdown.value = value;
+
+}
+
+
+/**
+ * Set ladies count.
+ *
+ * @param {number} value
+ */
+export function setLadiesCount(value) {
+
+    const dropdown =
+
+        getElement("ladiesCount");
+
+    if (!dropdown) {
+
+        return;
+
+    }
+
+    dropdown.value = value;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Update Limits
+|--------------------------------------------------------------------------
+*/
+
+/**
+ * Update dropdown limits while
+ * preserving selected values.
+ *
+ * @param {number} maxGentlemen
+ * @param {number} maxLadies
+ */
+export function updateDropdownLimits(
+
+    maxGentlemen,
+
+    maxLadies
+
+) {
 
     populateDropdown(
 
-        gentsDropdown,
+        getElement("gentsCount"),
 
-        guest.maxGuests
+        maxGentlemen
 
     );
 
     populateDropdown(
 
-        ladiesDropdown,
+        getElement("ladiesCount"),
 
-        guest.maxGuests
+        maxLadies
+
+    );
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Initialization
+|--------------------------------------------------------------------------
+*/
+
+/**
+ * Initialize guest count dropdowns.
+ *
+ * @param {Object} guest
+ */
+export function initializeDropdowns(guest) {
+
+    updateDropdownLimits(
+
+        guest.maxGentlemen,
+
+        guest.maxLadies
 
     );
 

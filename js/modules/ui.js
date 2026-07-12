@@ -94,7 +94,14 @@ export function populateVenue() {
  */
 export function populateRSVP(guest) {
 
-    getElement("maxGuests").textContent = guest.maxGuests;
+    getElement("maxGuests").textContent =
+        guest.maxGuests;
+
+    getElement("maxGentlemen").textContent =
+        guest.maxGentlemen;
+
+    getElement("maxLadies").textContent =
+        guest.maxLadies;
 
 }
 

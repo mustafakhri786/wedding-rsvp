@@ -14,7 +14,7 @@ export const wedding = {
 
     bride: "Zahra Husain Fakhri",
 
-    groom: "M Husain Kawja",
+    groom: " M Husain Kawja",
 
     date: "30th August 2026",
 
@@ -28,7 +28,7 @@ export const wedding = {
 
     country: "India",
 
-    maps: ""
+    maps: "https://maps.app.goo.gl/SGS9FiauLQ6EsXPv8"
 
 };
 
@@ -47,8 +47,6 @@ export const appConfig = {
     version: "1.0.0",
 
     guestIdParameter: "id",
-
-    defaultGuestId: "A001"
 
 };
 
