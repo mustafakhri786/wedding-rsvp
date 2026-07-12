@@ -35,6 +35,9 @@ import {
  */
 function populateDropdown(dropdown, max) {
 
+    console.log("Dropdown:", dropdown);
+    console.log("Max:", max);
+
     if (!dropdown) {
 
         return;
@@ -52,6 +55,8 @@ function populateDropdown(dropdown, max) {
         );
 
     }
+
+    console.log("Options:", dropdown.options.length);
 
 }
 
@@ -128,6 +133,33 @@ export function initializeDropdowns(guest) {
 
             break;
 
+    }
+
+}
+
+export function initializeDropdowns(guest) {
+
+    const mode = getInvitationMode(guest);
+
+    console.log("Dropdown Mode:", mode);
+
+    switch (mode) {
+
+        case INVITATION_MODE.OPEN:
+
+            console.log("Populating members");
+
+            populateDropdown(
+
+                getElement("membersCount"),
+
+                guest.maxGuests
+
+            );
+
+            break;
+
+        ...
     }
 
 }
