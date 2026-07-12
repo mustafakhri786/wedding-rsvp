@@ -64,4 +64,4 @@ export function initializeRSVP(guest) {
 
     );
 
-}z
+}
