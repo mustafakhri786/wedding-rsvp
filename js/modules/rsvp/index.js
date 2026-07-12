@@ -11,6 +11,12 @@ import {
 
 import {
 
+    initializeDropdownEngine
+
+} from "./engine.js";
+
+import {
+
     initializeValidation
 
 } from "./validation.js";
@@ -35,6 +41,12 @@ import {
 export function initializeRSVP(guest) {
 
     initializeDropdowns(
+
+        guest
+
+    );
+
+    initializeDropdownEngine(
 
         guest
 
