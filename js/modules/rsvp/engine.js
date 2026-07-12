@@ -108,9 +108,13 @@ export function getInvitationMode(guest) {
  */
 export function initializeDropdownEngine(guest) {
 
+    console.log("Engine running")
+
     const mode =
 
         getInvitationMode(guest);
+        console.log("Mode:", mode)
+        console.log(guest)
 
     const gentsField =
 
