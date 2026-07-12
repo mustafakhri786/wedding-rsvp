@@ -9,30 +9,31 @@ import {
 
     createOption,
 
-    clearElement,
-
-    toNumber
+    clearElement
 
 } from "../helpers.js";
 
+import {
+
+    getInvitationMode,
+
+    INVITATION_MODE
+
+} from "./engine.js";
 
 /*
 |--------------------------------------------------------------------------
-| Populate Dropdown
+| Dropdown Helpers
 |--------------------------------------------------------------------------
 */
 
 /**
- * Populate a dropdown while preserving
- * the current value whenever possible.
+ * Populate a dropdown.
  *
  * @param {HTMLSelectElement} dropdown
- * @param {number} maximum
+ * @param {number} max
  */
-export function populateDropdown(
-    dropdown,
-    maximum
-) {
+function populateDropdown(dropdown, max) {
 
     if (!dropdown) {
 
@@ -40,25 +41,9 @@ export function populateDropdown(
 
     }
 
-    const previousValue = Math.min(
-
-        toNumber(dropdown.value),
-
-        maximum
-
-    );
-
     clearElement(dropdown);
 
-    for (
-
-        let i = 0;
-
-        i <= maximum;
-
-        i++
-
-    ) {
+    for (let i = 0; i <= max; i++) {
 
         dropdown.appendChild(
 
@@ -68,138 +53,7 @@ export function populateDropdown(
 
     }
 
-    dropdown.value = previousValue;
-
 }
-
-
-/*
-|--------------------------------------------------------------------------
-| Get Dropdown Values
-|--------------------------------------------------------------------------
-*/
-
-/**
- * Get selected gentlemen count.
- *
- * @returns {number}
- */
-export function getGentlemenCount() {
-
-    return toNumber(
-
-        getElement("gentsCount")?.value
-
-    );
-
-}
-
-
-/**
- * Get selected ladies count.
- *
- * @returns {number}
- */
-export function getLadiesCount() {
-
-    return toNumber(
-
-        getElement("ladiesCount")?.value
-
-    );
-
-}
-
-
-/*
-|--------------------------------------------------------------------------
-| Set Dropdown Values
-|--------------------------------------------------------------------------
-*/
-
-/**
- * Set gentlemen count.
- *
- * @param {number} value
- */
-export function setGentlemenCount(value) {
-
-    const dropdown =
-
-        getElement("gentsCount");
-
-    if (!dropdown) {
-
-        return;
-
-    }
-
-    dropdown.value = value;
-
-}
-
-
-/**
- * Set ladies count.
- *
- * @param {number} value
- */
-export function setLadiesCount(value) {
-
-    const dropdown =
-
-        getElement("ladiesCount");
-
-    if (!dropdown) {
-
-        return;
-
-    }
-
-    dropdown.value = value;
-
-}
-
-
-/*
-|--------------------------------------------------------------------------
-| Update Limits
-|--------------------------------------------------------------------------
-*/
-
-/**
- * Update dropdown limits while
- * preserving selected values.
- *
- * @param {number} maxGentlemen
- * @param {number} maxLadies
- */
-export function updateDropdownLimits(
-
-    maxGentlemen,
-
-    maxLadies
-
-) {
-
-    populateDropdown(
-
-        getElement("gentsCount"),
-
-        maxGentlemen
-
-    );
-
-    populateDropdown(
-
-        getElement("ladiesCount"),
-
-        maxLadies
-
-    );
-
-}
-
 
 /*
 |--------------------------------------------------------------------------
@@ -208,18 +62,72 @@ export function updateDropdownLimits(
 */
 
 /**
- * Initialize guest count dropdowns.
+ * Initialize RSVP dropdowns.
  *
  * @param {Object} guest
  */
 export function initializeDropdowns(guest) {
 
-    updateDropdownLimits(
+    const mode = getInvitationMode(guest);
 
-        guest.maxGentlemen,
+    switch (mode) {
 
-        guest.maxLadies
+        case INVITATION_MODE.MIXED:
 
-    );
+            populateDropdown(
+
+                getElement("gentsCount"),
+
+                guest.maxGentlemen
+
+            );
+
+            populateDropdown(
+
+                getElement("ladiesCount"),
+
+                guest.maxLadies
+
+            );
+
+            break;
+
+        case INVITATION_MODE.GENTLEMEN:
+
+            populateDropdown(
+
+                getElement("gentsCount"),
+
+                guest.maxGentlemen
+
+            );
+
+            break;
+
+        case INVITATION_MODE.LADIES:
+
+            populateDropdown(
+
+                getElement("ladiesCount"),
+
+                guest.maxLadies
+
+            );
+
+            break;
+
+        case INVITATION_MODE.OPEN:
+
+            populateDropdown(
+
+                getElement("membersCount"),
+
+                guest.maxGuests
+
+            );
+
+            break;
+
+    }
 
 }
