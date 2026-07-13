@@ -7,38 +7,35 @@ import {
 
     getElement,
 
-    createOption,
+    clearElement,
 
-    clearElement
+    createOption
 
 } from "../helpers.js";
 
-import {
-
-    getInvitationMode,
-
-    INVITATION_MODE
-
-} from "./engine.js";
-
 /*
 |--------------------------------------------------------------------------
-| Dropdown Helpers
+| Dropdown Builder
 |--------------------------------------------------------------------------
 */
 
 /**
- * Populate a dropdown.
+ * Populate a dropdown from 0 to max.
  *
- * @param {HTMLSelectElement} dropdown
+ * @param {string} id
  * @param {number} max
  */
-function populateDropdown(dropdown, max) {
+export function populateDropdown(id, max) {
 
-    console.log("Dropdown:", dropdown);
-    console.log("Max:", max);
+    const dropdown = getElement(id);
 
     if (!dropdown) {
+
+        console.error(
+
+            `Dropdown '${id}' not found.`
+
+        );
 
         return;
 
@@ -46,7 +43,15 @@ function populateDropdown(dropdown, max) {
 
     clearElement(dropdown);
 
-    for (let i = 0; i <= max; i++) {
+    for (
+
+        let i = 0;
+
+        i <= max;
+
+        i++
+
+    ) {
 
         dropdown.appendChild(
 
@@ -56,110 +61,43 @@ function populateDropdown(dropdown, max) {
 
     }
 
-    console.log("Options:", dropdown.options.length);
-
 }
 
 /*
 |--------------------------------------------------------------------------
-| Initialization
+| RSVP Initialization
 |--------------------------------------------------------------------------
 */
 
 /**
- * Initialize RSVP dropdowns.
+ * Populate every RSVP dropdown.
  *
  * @param {Object} guest
  */
 export function initializeDropdowns(guest) {
 
-    const mode = getInvitationMode(guest);
+    populateDropdown(
 
-    switch (mode) {
+        "gentsCount",
 
-        case INVITATION_MODE.MIXED:
+        guest.maxGentlemen
 
-            populateDropdown(
+    );
 
-                getElement("gentsCount"),
+    populateDropdown(
 
-                guest.maxGentlemen
+        "ladiesCount",
 
-            );
+        guest.maxLadies
 
-            populateDropdown(
+    );
 
-                getElement("ladiesCount"),
+    populateDropdown(
 
-                guest.maxLadies
+        "membersCount",
 
-            );
+        guest.maxGuests
 
-            break;
-
-        case INVITATION_MODE.GENTLEMEN:
-
-            populateDropdown(
-
-                getElement("gentsCount"),
-
-                guest.maxGentlemen
-
-            );
-
-            break;
-
-        case INVITATION_MODE.LADIES:
-
-            populateDropdown(
-
-                getElement("ladiesCount"),
-
-                guest.maxLadies
-
-            );
-
-            break;
-
-        case INVITATION_MODE.OPEN:
-
-            populateDropdown(
-
-                getElement("membersCount"),
-
-                guest.maxGuests
-
-            );
-
-            break;
-
-    }
-
-}
-
-export function initializeDropdowns(guest) {
-
-    const mode = getInvitationMode(guest);
-
-    console.log("Dropdown Mode:", mode);
-
-    switch (mode) {
-
-        case INVITATION_MODE.OPEN:
-
-            console.log("Populating members");
-
-            populateDropdown(
-
-                getElement("membersCount"),
-
-                guest.maxGuests
-
-            );
-
-            break;
-
-        ...
-    }
+    );
 
 }
