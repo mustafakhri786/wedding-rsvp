@@ -20,7 +20,9 @@ import {
 */
 
 /**
- * Populate a dropdown from 0 to max.
+ * Populate a dropdown from 0 to max
+ * while preserving the selected value
+ * whenever possible.
  *
  * @param {string} id
  * @param {number} max
@@ -41,6 +43,14 @@ export function populateDropdown(id, max) {
 
     }
 
+    // Remember previous value
+
+    const previousValue = Number(
+
+        dropdown.value || 0
+
+    );
+
     clearElement(dropdown);
 
     for (
@@ -60,6 +70,16 @@ export function populateDropdown(id, max) {
         );
 
     }
+
+    // Restore previous value if possible
+
+    dropdown.value = Math.min(
+
+        previousValue,
+
+        max
+
+    );
 
 }
 
