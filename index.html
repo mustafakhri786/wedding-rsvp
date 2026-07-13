@@ -419,95 +419,110 @@
         <!-- Hidden until "Accept" -->
 
         <div
-            id="acceptSection" class="hidden">
+            id="acceptSection"
+            class="hidden">
 
-<div
-    id="guestSelection"
-    class="guest-selection">
+            <div
+                id="guestSelection"
+                class="guest-selection">
 
-    <!-- Gentlemen -->
+                <!-- Gentlemen -->
 
-    <div
-        id="gentsField"
-        class="guest-field">
+                <div
+                    id="gentsField"
+                    class="guest-field">
 
-        <label for="gentsCount">
+                    <label for="gentsCount">
 
-            Gentlemen
+                        Gentlemen
 
-        </label>
+                    </label>
 
-        <select id="gentsCount"></select>
+                    <select id="gentsCount"></select>
 
-    </div>
+                </div>
 
-    <!-- Ladies -->
+                <!-- Ladies -->
 
-    <div
-        id="ladiesField"
-        class="guest-field">
+                <div
+                    id="ladiesField"
+                    class="guest-field">
 
-        <label for="ladiesCount">
+                    <label for="ladiesCount">
 
-            Ladies
+                        Ladies
 
-        </label>
+                    </label>
 
-        <select id="ladiesCount"></select>
+                    <select id="ladiesCount"></select>
 
-    </div>
+                </div>
 
-    <!-- Open Invitation -->
+                <!-- Open Invitation -->
 
-    <div
-        id="membersField"
-        class="guest-field hidden">
+                <div
+                    id="membersField"
+                    class="guest-field hidden">
 
-        <label for="membersCount">
+                    <label for="membersCount">
 
-            Members Attending
+                        Members Attending
 
-        </label>
+                    </label>
 
-        <select id="membersCount"></select>
+                    <select id="membersCount"></select>
 
-    </div>
+                </div>
 
-</div>
+            </div>
 
-<div
-    id="guestLimits"
-    class="max-guests">
+            <!-- Guest Limits -->
 
-    <p id="totalGuestsInfo">
+            <div
+                id="guestLimits"
+                class="max-guests">
 
-        <strong>Maximum Guests Invited:</strong>
+                <p id="totalGuestsInfo">
 
-        <span id="maxGuests"></span>
+                    <strong id="totalGuestsLabel">
 
-    </p>
+                        Maximum Guests Invited:
 
-    <p id="gentlemenInfo">
+                    </strong>
 
-        <strong>Maximum Gentlemen:</strong>
+                    <span id="maxGuests"></span>
 
-        <span id="maxGentlemen"></span>
+                </p>
 
-    </p>
+                <p id="gentlemenInfo">
 
-    <p id="ladiesInfo">
+                    <strong id="gentlemenLabel">
 
-        <strong>Maximum Ladies:</strong>
+                        Maximum Gentlemen Invited:
 
-        <span id="maxLadies"></span>
+                    </strong>
 
-    </p>
+                    <span id="maxGentlemen"></span>
 
-</div>
+                </p>
+
+                <p id="ladiesInfo">
+
+                    <strong id="ladiesLabel">
+
+                        Maximum Ladies Invited:
+
+                    </strong>
+
+                    <span id="maxLadies"></span>
+
+                </p>
+
+            </div>
 
             <p
                 id="warning"
-               class="warning hidden">
+                class="warning hidden">
 
                 Total guests exceed your invitation.
 
@@ -523,6 +538,45 @@
             Submit RSVP
 
         </button>
+
+    </div>
+
+</section>
+
+<!-- =======================================
+                THANK YOU
+======================================= -->
+
+<section
+    id="thankYou"
+    class="section hidden">
+
+    <div class="card thank-you-card">
+
+        <div class="thank-you-icon">
+
+            ❤️
+
+        </div>
+
+        <h2>
+
+            Thank You!
+
+        </h2>
+
+        <p>
+
+            Your RSVP has been received successfully.
+
+        </p>
+
+        <p>
+
+            We look forward to celebrating this
+            joyous occasion with you.
+
+        </p>
 
     </div>
 

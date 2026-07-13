@@ -94,6 +94,28 @@ export function populateVenue() {
  */
 export function populateRSVP(guest) {
 
+    const guestLimits =
+
+        getElement("guestLimits");
+
+    const totalGuestsInfo =
+
+        getElement("totalGuestsInfo");
+
+    const gentlemenInfo =
+
+        getElement("gentlemenInfo");
+
+    const ladiesInfo =
+
+        getElement("ladiesInfo");
+
+    /*
+    ------------------------------------------------
+    Populate Values
+    ------------------------------------------------
+    */
+
     getElement("maxGuests").textContent =
         guest.maxGuests;
 
@@ -102,6 +124,106 @@ export function populateRSVP(guest) {
 
     getElement("maxLadies").textContent =
         guest.maxLadies;
+
+    /*
+    ------------------------------------------------
+    Hide Everything
+    ------------------------------------------------
+    */
+
+    guestLimits.style.display = "";
+
+    totalGuestsInfo.style.display = "none";
+
+    gentlemenInfo.style.display = "none";
+
+    ladiesInfo.style.display = "none";
+
+    /*
+    ------------------------------------------------
+    Open Invitation
+    ------------------------------------------------
+    */
+
+    if (
+
+        guest.maxGentlemen === 0 &&
+
+        guest.maxLadies === 0
+
+    ) {
+
+        guestLimits.style.display = "none";
+
+        return;
+
+    }
+
+    /*
+    ------------------------------------------------
+    Gentlemen Only
+    ------------------------------------------------
+    */
+
+    if (
+
+        guest.maxGentlemen > 0 &&
+
+        guest.maxLadies === 0
+
+    ) {
+
+        gentlemenInfo.style.display = "";
+
+        return;
+
+    }
+
+    /*
+    ------------------------------------------------
+    Ladies Only
+    ------------------------------------------------
+    */
+
+    if (
+
+        guest.maxGentlemen === 0 &&
+
+        guest.maxLadies > 0
+
+    ) {
+
+        ladiesInfo.style.display = "";
+
+        return;
+
+    }
+
+    /*
+    ------------------------------------------------
+    Mixed Invitation
+    ------------------------------------------------
+    */
+
+    if (
+
+        guest.maxGuests === guest.maxGentlemen &&
+
+        guest.maxGuests === guest.maxLadies
+
+    ) {
+
+        totalGuestsInfo.style.display = "";
+
+    }
+
+    else {
+
+        gentlemenInfo.style.display = "";
+
+        ladiesInfo.style.display = "";
+
+    }
 
 }
 
