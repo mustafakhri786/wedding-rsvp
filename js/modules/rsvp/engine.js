@@ -96,6 +96,49 @@ export function getInvitationMode(guest) {
 
 /*
 |--------------------------------------------------------------------------
+| Guest Limit Calculation
+|--------------------------------------------------------------------------
+*/
+
+/**
+ * Calculate the maximum values allowed
+ * after one dropdown changes.
+ *
+ * @param {Object} guest
+ * @param {number} gentlemen
+ * @param {number} ladies
+ * @returns {{maxGentlemen:number,maxLadies:number}}
+ */
+export function calculateLimits(
+    guest,
+    gentlemen,
+    ladies
+) {
+
+    return {
+
+        maxGentlemen: Math.min(
+
+            guest.maxGentlemen,
+
+            guest.maxGuests - ladies
+
+        ),
+
+        maxLadies: Math.min(
+
+            guest.maxLadies,
+
+            guest.maxGuests - gentlemen
+
+        )
+
+    };
+
+}
+
+/*
+|--------------------------------------------------------------------------
 | UI
 |--------------------------------------------------------------------------
 */
