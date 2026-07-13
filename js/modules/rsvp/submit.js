@@ -212,7 +212,8 @@ async function handleSubmit() {
         const guest =
 
             await getGuest();
-
+        
+        console.time("RSVP");
         const response =
 
             await submitRSVP({
