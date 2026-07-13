@@ -239,6 +239,8 @@ async function handleSubmit() {
 
             });
 
+            console.timeEnd("RSVP");
+
         if (
 
             response.status !== "success"
