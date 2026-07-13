@@ -2,6 +2,13 @@
 // Wedding RSVP Web App
 // RSVP Submit Module
 // ======================================
+import {
+
+    showLoading,
+
+    hideLoading
+
+} from "../loading.js";
 
 import {
 
@@ -206,6 +213,7 @@ async function handleSubmit() {
     }
 
     submitButton.disabled = true;
+    showLoading();
 
     try {
 
@@ -244,22 +252,25 @@ async function handleSubmit() {
 
         if (
 
-            response.status !== "success"
+    response.status !== "success"
 
-        ) {
+) {
 
-            alert(
+    hideLoading();
 
-                response.message
+    alert(
 
-            );
+        response.message
 
-            submitButton.disabled = false;
+    );
 
-            return;
+    submitButton.disabled = false;
 
-        }
+    return;
 
+}
+
+        hideLoading();  
         showThankYou();
 
     }
@@ -279,7 +290,8 @@ async function handleSubmit() {
             "Unable to submit RSVP. Please try again."
 
         );
-
+        
+        hideLoading();
         submitButton.disabled = false;
 
     }
