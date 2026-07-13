@@ -166,6 +166,7 @@ function calculateLimits(guest) {
  */
 function synchronizeDropdowns(guest) {
 
+    console.log("Synchronizing...");
     const limits =
 
         calculateLimits(
