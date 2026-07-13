@@ -65,6 +65,29 @@ export function populateDropdown(id, max) {
 
 /*
 |--------------------------------------------------------------------------
+| Get Dropdown Value
+|--------------------------------------------------------------------------
+*/
+
+/**
+ * Get the selected value of a dropdown.
+ *
+ * @param {string} id
+ * @returns {number}
+ */
+export function getDropdownValue(id) {
+
+    return Number(
+
+        getElement(id)?.value || 0
+
+    );
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
 | RSVP Initialization
 |--------------------------------------------------------------------------
 */
