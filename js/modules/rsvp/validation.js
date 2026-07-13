@@ -45,6 +45,48 @@ export function getSelectedAttendance() {
  */
 export function getGuestCounts() {
 
+    /*
+    ------------------------------------------------
+    Open Invitation
+    ------------------------------------------------
+    */
+
+    const membersField =
+
+        getElement("membersField");
+
+    if (
+
+        membersField &&
+
+        !membersField.classList.contains("hidden")
+
+    ) {
+
+        const members = toNumber(
+
+            getElement("membersCount")?.value
+
+        );
+
+        return {
+
+            gents: 0,
+
+            ladies: members,
+
+            total: members
+
+        };
+
+    }
+
+    /*
+    ------------------------------------------------
+    Mixed / Gentlemen / Ladies
+    ------------------------------------------------
+    */
+
     const gents = toNumber(
 
         getElement("gentsCount")?.value
@@ -82,15 +124,31 @@ export function getGuestCounts() {
  */
 function validateGuestCount(guest) {
 
-    const warning = getElement("warning");
+    const warning =
 
-    const submitButton = getElement("submitBtn");
+        getElement("warning");
 
-    const { total } = getGuestCounts();
+    const submitButton =
 
-    if (total > guest.maxGuests) {
+        getElement("submitBtn");
 
-        show(warning);
+    const {
+
+        total
+
+    } = getGuestCounts();
+
+    if (
+
+        total > guest.maxGuests
+
+    ) {
+
+        show(
+
+            warning
+
+        );
 
         submitButton.disabled = true;
 
@@ -98,7 +156,11 @@ function validateGuestCount(guest) {
 
     }
 
-    hide(warning);
+    hide(
+
+        warning
+
+    );
 
     submitButton.disabled = false;
 
@@ -117,23 +179,41 @@ function validateGuestCount(guest) {
  */
 function handleAttendanceChange(event) {
 
-    const acceptSection = getElement("acceptSection");
+    const acceptSection =
 
-    if (!acceptSection) {
+        getElement("acceptSection");
+
+    if (
+
+        !acceptSection
+
+    ) {
 
         return;
 
     }
 
-    if (event.target.value === "yes") {
+    if (
 
-        show(acceptSection);
+        event.target.value === "yes"
+
+    ) {
+
+        show(
+
+            acceptSection
+
+        );
 
     }
 
     else {
 
-        hide(acceptSection);
+        hide(
+
+            acceptSection
+
+        );
 
     }
 
@@ -154,7 +234,11 @@ export function initializeValidation(guest) {
 
     const attendanceOptions =
 
-        getElements('input[name="attendance"]');
+        getElements(
+
+            'input[name="attendance"]'
+
+        );
 
     attendanceOptions.forEach(option => {
 
@@ -179,6 +263,16 @@ export function initializeValidation(guest) {
         );
 
     getElement("ladiesCount")
+
+        ?.addEventListener(
+
+            "change",
+
+            () => validateGuestCount(guest)
+
+        );
+
+    getElement("membersCount")
 
         ?.addEventListener(
 

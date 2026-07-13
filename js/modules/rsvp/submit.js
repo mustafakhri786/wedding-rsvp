@@ -41,7 +41,6 @@ import {
 
 } from "../guest.js";
 
-
 /*
 |--------------------------------------------------------------------------
 | RSVP Data
@@ -53,10 +52,11 @@ import {
  *
  * @returns {Object}
  */
-
 function collectRSVPData() {
 
-    const attendance = getSelectedAttendance();
+    const attendance =
+
+        getSelectedAttendance();
 
     const {
 
@@ -70,7 +70,9 @@ function collectRSVPData() {
 
     return {
 
-        attendance: attendance?.value,
+        attendance:
+
+            attendance?.value,
 
         gents,
 
@@ -82,7 +84,6 @@ function collectRSVPData() {
 
 }
 
-
 /*
 |--------------------------------------------------------------------------
 | UI
@@ -92,7 +93,6 @@ function collectRSVPData() {
 /**
  * Show Thank You section.
  */
-
 function showThankYou() {
 
     hide(
@@ -115,7 +115,6 @@ function showThankYou() {
 
 }
 
-
 /*
 |--------------------------------------------------------------------------
 | Validation
@@ -127,12 +126,17 @@ function showThankYou() {
  *
  * @returns {Object|null}
  */
-
 function validateSubmission() {
 
-    const data = collectRSVPData();
+    const data =
 
-    if (!data.attendance) {
+        collectRSVPData();
+
+    if (
+
+        !data.attendance
+
+    ) {
 
         alert(
 
@@ -168,7 +172,6 @@ function validateSubmission() {
 
 }
 
-
 /*
 |--------------------------------------------------------------------------
 | Submit
@@ -178,18 +181,25 @@ function validateSubmission() {
 /**
  * Handle RSVP submission.
  */
-
 async function handleSubmit() {
 
-    const submitButton = getElement(
+    const submitButton =
 
-        "submitBtn"
+        getElement(
 
-    );
+            "submitBtn"
 
-    const rsvpData = validateSubmission();
+        );
 
-    if (!rsvpData) {
+    const rsvpData =
+
+        validateSubmission();
+
+    if (
+
+        !rsvpData
+
+    ) {
 
         return;
 
@@ -199,25 +209,35 @@ async function handleSubmit() {
 
     try {
 
-        const guest = await getGuest();
+        const guest =
 
-        const response = await submitRSVP({
+            await getGuest();
 
-            inviteCode: guest.id,
+        const response =
 
-            attendance:
+            await submitRSVP({
 
-                rsvpData.attendance === "yes"
+                inviteCode:
 
-                    ? "Accepted"
+                    guest.id,
 
-                    : "Declined",
+                attendance:
 
-            gentlemen: rsvpData.gents,
+                    rsvpData.attendance === "yes"
 
-            ladies: rsvpData.ladies
+                        ? "Accepted"
 
-        });
+                        : "Declined",
+
+                gentlemen:
+
+                    rsvpData.gents,
+
+                ladies:
+
+                    rsvpData.ladies
+
+            });
 
         if (
 
@@ -263,7 +283,6 @@ async function handleSubmit() {
 
 }
 
-
 /*
 |--------------------------------------------------------------------------
 | Initialization
@@ -273,7 +292,6 @@ async function handleSubmit() {
 /**
  * Initialize RSVP submission.
  */
-
 export function initializeSubmission() {
 
     getElement(
