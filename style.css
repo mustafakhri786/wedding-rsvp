@@ -195,7 +195,7 @@ p{
 
     display: flex;
 
-    justify-content: space-between;
+    justify-content: center;
 
     align-items: center;
 
@@ -287,12 +287,6 @@ p{
 
 }
 
-.hero{
-
-    padding-top: 90px;
-
-}
-
 /* ==========================================
                 HERO
 ========================================== */
@@ -309,7 +303,7 @@ p{
 
     text-align:center;
 
-    padding:120px 30px 80px;
+    padding:70px 30px 80px;
 
     background:linear-gradient(
         to bottom,
