@@ -13,6 +13,13 @@ import {
 
 } from "../helpers.js";
 
+import {
+
+    populateDropdown,
+
+    getDropdownValue
+
+} from "./dropdown.js";
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +39,6 @@ export const INVITATION_MODE = Object.freeze({
 
 });
 
-
 /*
 |--------------------------------------------------------------------------
 | Detect Invitation Mode
@@ -48,9 +54,11 @@ export const INVITATION_MODE = Object.freeze({
 export function getInvitationMode(guest) {
 
     const hasGentlemen =
+
         guest.maxGentlemen > 0;
 
     const hasLadies =
+
         guest.maxLadies > 0;
 
     if (
@@ -67,9 +75,7 @@ export function getInvitationMode(guest) {
 
     if (
 
-        hasGentlemen &&
-
-        !hasLadies
+        hasGentlemen
 
     ) {
 
@@ -78,8 +84,6 @@ export function getInvitationMode(guest) {
     }
 
     if (
-
-        !hasGentlemen &&
 
         hasLadies
 
@@ -93,29 +97,41 @@ export function getInvitationMode(guest) {
 
 }
 
-
 /*
 |--------------------------------------------------------------------------
-| Guest Limit Calculation
+| Limit Calculator
 |--------------------------------------------------------------------------
 */
 
 /**
- * Calculate the maximum values allowed
- * after one dropdown changes.
+ * Calculate dynamic limits.
  *
  * @param {Object} guest
- * @param {number} gentlemen
- * @param {number} ladies
- * @returns {{maxGentlemen:number,maxLadies:number}}
+ * @returns {Object}
  */
-export function calculateLimits(
-    guest,
-    gentlemen,
-    ladies
-) {
+function calculateLimits(guest) {
+
+    const gentlemen =
+
+        getDropdownValue(
+
+            "gentsCount"
+
+        );
+
+    const ladies =
+
+        getDropdownValue(
+
+            "ladiesCount"
+
+        );
 
     return {
+
+        gentlemen,
+
+        ladies,
 
         maxGentlemen: Math.min(
 
@@ -139,45 +155,90 @@ export function calculateLimits(
 
 /*
 |--------------------------------------------------------------------------
-| UI
+| Synchronization
 |--------------------------------------------------------------------------
 */
 
 /**
- * Show fields according
- * to invitation type.
+ * Refresh dropdown limits.
  *
  * @param {Object} guest
  */
-export function initializeDropdownEngine(guest) {
+function synchronizeDropdowns(guest) {
 
-    console.log("Engine running")
+    const limits =
 
-    const mode =
+        calculateLimits(
 
-        getInvitationMode(guest);
-        console.log("Mode:", mode)
-        console.log(guest)
+            guest
+
+        );
+
+    populateDropdown(
+
+        "gentsCount",
+
+        limits.maxGentlemen
+
+    );
+
+    populateDropdown(
+
+        "ladiesCount",
+
+        limits.maxLadies
+
+    );
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| UI Manager
+|--------------------------------------------------------------------------
+*/
+
+function updateInterface(mode) {
 
     const gentsField =
 
-        getElement("gentsField");
+        getElement(
+
+            "gentsField"
+
+        );
 
     const ladiesField =
 
-        getElement("ladiesField");
+        getElement(
+
+            "ladiesField"
+
+        );
 
     const membersField =
 
-        getElement("membersField");
+        getElement(
+
+            "membersField"
+
+        );
 
     const gentlemenInfo =
 
-        getElement("gentlemenInfo");
+        getElement(
+
+            "gentlemenInfo"
+
+        );
 
     const ladiesInfo =
 
-        getElement("ladiesInfo");
+        getElement(
+
+            "ladiesInfo"
+
+        );
 
     switch (mode) {
 
@@ -238,5 +299,172 @@ export function initializeDropdownEngine(guest) {
             break;
 
     }
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Engine Initialization
+|--------------------------------------------------------------------------
+*/
+
+/**
+ * Initialize the Smart RSVP Engine.
+ *
+ * @param {Object} guest
+ */
+export function initializeDropdownEngine(guest) {
+
+    const mode =
+
+        getInvitationMode(
+
+            guest
+
+        );
+
+    updateInterface(
+
+        mode
+
+    );
+
+    /*
+    ------------------------------------------------
+    Open Invitation
+    ------------------------------------------------
+    */
+
+    if (
+
+        mode === INVITATION_MODE.OPEN
+
+    ) {
+
+        return;
+
+    }
+
+    /*
+    ------------------------------------------------
+    Gentlemen Only
+    ------------------------------------------------
+    */
+
+    if (
+
+        mode === INVITATION_MODE.GENTLEMEN
+
+    ) {
+
+        return;
+
+    }
+
+    /*
+    ------------------------------------------------
+    Ladies Only
+    ------------------------------------------------
+    */
+
+    if (
+
+        mode === INVITATION_MODE.LADIES
+
+    ) {
+
+        return;
+
+    }
+
+    /*
+    ------------------------------------------------
+    Mixed Invitation
+    ------------------------------------------------
+    */
+
+    const gentsDropdown =
+
+        getElement(
+
+            "gentsCount"
+
+        );
+
+    const ladiesDropdown =
+
+        getElement(
+
+            "ladiesCount"
+
+        );
+
+    if (
+
+        !gentsDropdown ||
+
+        !ladiesDropdown
+
+    ) {
+
+        return;
+
+    }
+
+    /*
+    ------------------------------------------------
+    Initial Synchronization
+    ------------------------------------------------
+    */
+
+    synchronizeDropdowns(
+
+        guest
+
+    );
+
+    /*
+    ------------------------------------------------
+    Gentlemen Changed
+    ------------------------------------------------
+    */
+
+    gentsDropdown.addEventListener(
+
+        "change",
+
+        () => {
+
+            synchronizeDropdowns(
+
+                guest
+
+            );
+
+        }
+
+    );
+
+    /*
+    ------------------------------------------------
+    Ladies Changed
+    ------------------------------------------------
+    */
+
+    ladiesDropdown.addEventListener(
+
+        "change",
+
+        () => {
+
+            synchronizeDropdowns(
+
+                guest
+
+            );
+
+        }
+
+    );
 
 }
