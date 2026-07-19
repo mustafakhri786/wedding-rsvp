@@ -22,7 +22,8 @@ export function populateHero() {
 
     getElement("groomName").textContent = wedding.groom;
 
-    getElement("weddingDate").textContent = wedding.date;
+    getElement("weddingDate").innerHTML =
+    wedding.date.replace(/(\d+)(st|nd|rd|th)/, "$1<sup>$2</sup>");
 
     getElement("weddingTime").textContent = wedding.time;
 
@@ -57,7 +58,9 @@ export function populateInvitation(guest) {
  */
 export function populateWeddingDetails() {
 
-    getElement("detailDate").textContent = wedding.date;
+    getElement("detailDate").innerHTML = wedding.date.replace(
+    /(\d+)(st|nd|rd|th)/,
+    "$1<sup>$2</sup>");
 
     getElement("detailTime").textContent = wedding.time;
 

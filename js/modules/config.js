@@ -12,13 +12,13 @@
 
 export const wedding = {
 
-    bride: "Zahra Husain Fakhri",
+    bride: "Zahra Husain Fakhri ",
 
-    groom: " M Husain Kawja",
+    groom: " M Husain Najmi",
 
-    date: "30th August 2026",
+    date: "22nd September 2026",
 
-    time: "After Maghrib",
+    time: "8:00 PM",
 
     venue: "Shehabi Hall",
 
